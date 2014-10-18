@@ -18,11 +18,13 @@ gem 'devise'
 
 group :development, :test do
   gem 'spring'
-  gem 'factory_girl'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails', '~> 3.0.0'
   gem "rubycritic", :require => false
   gem 'brakeman', :require => false
   gem "rails_best_practices"
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'guard-rspec', require: false
 
 end
