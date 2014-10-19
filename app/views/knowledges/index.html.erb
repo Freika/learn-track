@@ -1,1 +1,8 @@
 <%= link_to 'Добавить знание', new_knowledge_path, class: "btn btn-success" %>
+
+<div class="list">
+<% @knowledges.each do |knowledge| %>
+  <%= link_to knowledge.name, knowledge %>
+  <br>
+<% end %>
+</div>

@@ -27,5 +27,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-rspec', require: false
   gem 'faker'
+  gem 'launchy'
 
 end

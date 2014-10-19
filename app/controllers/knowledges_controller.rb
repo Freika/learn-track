@@ -1,6 +1,8 @@
 class KnowledgesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
+
   def index
+    @knowledges = Knowledge.all
   end
 
   def show
@@ -8,6 +10,11 @@ class KnowledgesController < ApplicationController
   end
 
   def edit
+    @knowledge = Knowledge.find(params[:id])
+    redirect_to root_path, notice: "Доступ запрещен." unless current_user && current_user.admin
+  end
+
+  def update
     @knowledge = Knowledge.find(params[:id])
     if @knowledge.update(knowledge_params)
       redirect_to @knowledge, notice: "Зание успешно обновлено"

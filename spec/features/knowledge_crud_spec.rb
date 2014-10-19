@@ -7,6 +7,30 @@ feature "Knowledge CRUD" do
   scenario "User creates new knowledge" do
     sign_in user
 
+    create_knowledge
+
+    expect(page).to have_content("Знание успешно добавлено")
+  end
+
+  scenario "Admin user updates existing knowledge" do
+    sign_in user
+    create_knowledge
+
+    visit knowledges_path
+
+    within ".list" do
+      first(:link, knowledge.name).click
+    end
+
+    click_link "Редактировать"
+
+  end
+
+  scenario "Admin user destroy existing knowledge" do
+
+  end
+
+  def create_knowledge
     click_link "Знания"
     click_link "Добавить знание"
 
@@ -15,15 +39,5 @@ feature "Knowledge CRUD" do
     fill_in "Ссылка", with: knowledge.link
     fill_in "Вид", with: knowledge.kind
     click_button "Сохранить знание"
-
-    expect(page).to have_content("Знание успешно добавлено")
-  end
-
-  scenario "Admin user updates existing knowledge" do
-
-  end
-
-  scenario "Admin user destroy existing knowledge" do
-
   end
 end
