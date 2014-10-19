@@ -3,6 +3,7 @@ require "rails_helper"
 feature "Knowledge CRUD" do
   let(:knowledge) {create :knowledge}
   let(:user) {create :user}
+  let(:admin) {create :admin}
 
   scenario "User creates new knowledge" do
     sign_in user
@@ -13,7 +14,7 @@ feature "Knowledge CRUD" do
   end
 
   scenario "Admin user updates existing knowledge" do
-    sign_in user
+    sign_in admin
     create_knowledge
 
     visit knowledges_path
@@ -21,9 +22,17 @@ feature "Knowledge CRUD" do
     within ".list" do
       first(:link, knowledge.name).click
     end
-
     click_link "Редактировать"
 
+    expect(page).to have_content "Редактирование #{knowledge.name}"
+  end
+
+  scenario "User can't edit existing knowledge" do
+    sign_in user
+    create_knowledge
+    click_link "Редактировать"
+
+    expect(page).to have_content "Доступ запрещен."
   end
 
   scenario "Admin user destroy existing knowledge" do
