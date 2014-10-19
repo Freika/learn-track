@@ -26,5 +26,6 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'guard-rspec', require: false
+  gem 'faker'
 
 end

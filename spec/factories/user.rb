@@ -1,8 +1,8 @@
 # This will guess the User class
 FactoryGirl.define do
   factory :user do
-    email "test@test.ru"
-    password "password"
+    email Faker::Internet.email
+    password Faker::Internet.password(8)
     admin false
   end
 
