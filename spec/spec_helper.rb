@@ -6,26 +6,20 @@ require 'database_cleaner'
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-  config.after(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+  config.around(:each) do |example|
+    DatabaseCleaner.start
+    example.run
+    DatabaseCleaner.clean
   end
 end
 
-def sign_in(user = create(:user))
+def sign_in_with(email, password)
 
-  visit "/"
-  click_link "Вход"
+  visit new_user_session_path
 
-  fill_in "Email", with: user.email
-  fill_in "Пароль", with: user.password
+  fill_in "Email", with: email
+  fill_in "Пароль", with: password
   click_button "Войти"
-
-  visit "/"
-
-  expect(page).to have_content("Выход")
+  visit root_path
 end
+

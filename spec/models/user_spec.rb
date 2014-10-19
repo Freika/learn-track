@@ -10,4 +10,5 @@ describe User, :type => :model do
   it "'s admin attribute is false" do
     expect(user.admin).to eq(false)
   end
+
 end

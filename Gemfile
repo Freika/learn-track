@@ -23,7 +23,8 @@ group :development, :test do
   gem "rubycritic", :require => false
   gem 'brakeman', :require => false
   gem "rails_best_practices"
-  gem 'capybara'
+  gem "capybara-webkit"
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'guard-rspec', require: false
   gem 'faker'

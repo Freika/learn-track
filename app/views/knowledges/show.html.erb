@@ -1,3 +1,5 @@
 <%= @knowledge.name %>
 <br>
 <%= link_to 'Редактировать', edit_knowledge_path(@knowledge) %>
+<br>
+<%= link_to 'Удалить', @knowledge, method: :delete, data: {confirm: "Вы уверены?"} %>
