@@ -29,5 +29,5 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'faker'
   gem 'launchy'
-
+  gem 'guard-livereload', require: false
 end

@@ -1,4 +1,3 @@
-# require 'devise'
 require 'capybara/rspec'
 require 'factory_girl_rails'
 require 'database_cleaner'
