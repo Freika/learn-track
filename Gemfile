@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'simple_form'
 gem 'devise'
+gem 'figaro'
 
 group :development, :test do
   gem 'spring'
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'faker'
   gem 'launchy'
   gem 'guard-livereload', require: false
-  gem "codeclimate-test-reporter", group: :test, require: nil
+  gem "codeclimate-test-reporter", require: nil
+  gem 'simplecov', :require => false
 
 end

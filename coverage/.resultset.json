@@ -650,10 +650,6 @@
         null,
         null
       ],
-      "/Users/frey/frails/learn-track/app/helpers/knowledges_helper.rb": [
-        1,
-        null
-      ],
       "/Users/frey/frails/learn-track/app/controllers/knowledges_controller.rb": [
         1,
         1,
@@ -724,6 +720,6 @@
         null
       ]
     },
-    "timestamp": 1413898362
+    "timestamp": 1413900411
   }
 }

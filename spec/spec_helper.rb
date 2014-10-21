@@ -1,5 +1,8 @@
+# require 'simplecov'
+# SimpleCov.start
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
+
 require 'capybara/rspec'
 require 'factory_girl_rails'
 require 'database_cleaner'
