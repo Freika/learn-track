@@ -1,6 +1,5 @@
 class Knowledge < ActiveRecord::Base
-  KINDS = { "Книга" => :book, "Скринкаст" => :screencast,
-    "Руководство" => :tutorial }
+  KINDS = [ "Книга", "Скринкаст", "Видео" ]
   validates :name, :description, :kind, presence: true
   validates :kind , inclusion: { in: KINDS }
 end

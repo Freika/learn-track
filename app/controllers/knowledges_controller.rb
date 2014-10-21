@@ -16,6 +16,7 @@ class KnowledgesController < ApplicationController
 
   def update
     @knowledge = Knowledge.find(params[:id])
+    redirect_to root_path, notice: "Доступ запрещен." unless current_user && current_user.admin
     if @knowledge.update(knowledge_params)
       redirect_to @knowledge, notice: "Зание успешно обновлено"
     else
@@ -37,6 +38,7 @@ class KnowledgesController < ApplicationController
   end
 
   def destroy
+    redirect_to root_path, notice: "Доступ запрещен." unless current_user && current_user.admin
     @knowledge = Knowledge.find(params[:id])
     @knowledge.destroy
     redirect_to knowledges_path, notice: "Знание удалено"

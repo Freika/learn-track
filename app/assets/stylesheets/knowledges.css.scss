@@ -1,3 +1,20 @@
 // Place all the styles related to the knowledges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.knowledge {
+  height: 300px;
+
+  .cover {
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin: 0 10px 10px 0;
+  }
+
+  .description {
+    margin: 10px
+  }
+
+}

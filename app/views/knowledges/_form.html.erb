@@ -2,7 +2,7 @@
   <%= f.input :name, label: "Название" %>
   <%= f.input :link, label: "Ссылка" %>
   <%= f.input :description, label: "Описание" %>
-  <%= f.input :kind, label: "Вид" %>
+  <%= f.input :kind, collection: Knowledge::KINDS, label: "Вид" %>
 
   <%= f.button :submit, value: 'Сохранить знание' %>
 <% end %>

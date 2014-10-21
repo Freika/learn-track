@@ -1,5 +1,59 @@
-<%= @knowledge.name %>
-<br>
-<%= link_to 'Редактировать', edit_knowledge_path(@knowledge) %>
-<br>
-<%= link_to 'Удалить', @knowledge, method: :delete, data: {confirm: "Вы уверены?"} %>
+<div class="knowledge">
+  <div class="cover">
+    <img src="http://lorempixel.com/200/300/" alt="">
+  </div>
+  <h2><%= @knowledge.name %></h2>
+
+  <% if current_admin? %>
+    <small>
+    <%= link_to 'Редактировать', edit_knowledge_path(@knowledge) %> |
+    <%= link_to 'Удалить', @knowledge, method: :delete, data: {confirm: "Вы уверены?"} %>
+    </small>
+    <br>
+  <% end %>
+
+  <strong>Сайт:</strong> <%= @knowledge.link %>
+
+  <div class="description">
+    <%= @knowledge.description %>
+  </div>
+</div>
+<hr>
+
+<div class="opinions">
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">Start Bootstrap
+          <small>August 25, 2014 at 9:30 PM</small>
+      </h4>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </div>
+
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">Start Bootstrap
+          <small>August 25, 2014 at 9:30 PM</small>
+      </h4>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </div>
+
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">Start Bootstrap
+          <small>August 25, 2014 at 9:30 PM</small>
+      </h4>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </div>
+</div>
