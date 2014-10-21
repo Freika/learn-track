@@ -37,12 +37,11 @@ feature "Knowledge CRUD" do
   #   expect(page).to have_content("Знание удалено")
   # end
 
-  scenario "User can't edit existing knowledge" do
+  scenario "User can't see edit link" do
     sign_in_with(user.email, user.password)
     add_knowledge
-    click_link "Редактировать"
 
-    expect(page).to have_content "Доступ запрещен."
+    expect(page).not_to have_content "Редактировать"
   end
 
   def add_knowledge
@@ -52,7 +51,7 @@ feature "Knowledge CRUD" do
     fill_in "Название", with: knowledge.name
     fill_in "Описание", with: knowledge.description
     fill_in "Ссылка", with: knowledge.link
-    fill_in "Вид", with: knowledge.kind
+    select("Книга", from: "knowledge[kind]")
     click_button "Сохранить знание"
   end
 end

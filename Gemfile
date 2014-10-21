@@ -30,4 +30,6 @@ group :development, :test do
   gem 'faker'
   gem 'launchy'
   gem 'guard-livereload', require: false
+  gem "codeclimate-test-reporter", group: :test, require: nil
+
 end

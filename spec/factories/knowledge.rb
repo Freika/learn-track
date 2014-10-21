@@ -9,6 +9,6 @@ FactoryGirl.define do
      quos optio, itaque minus reiciendis corporis quibusdam eum voluptatibus
      sequi nostrum amet assumenda?"
     link "http://leanpub.com"
-    kind %w(Книга Скринкаст Руководство).sample
+    kind %w(Книга Скринкаст).sample
   end
 end
