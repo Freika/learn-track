@@ -33,5 +33,5 @@ group :development, :test do
   gem 'guard-livereload', require: false
   gem "codeclimate-test-reporter", require: nil
   gem 'simplecov', :require => false
-
+  gem 'did_you_mean'
 end
