@@ -8,8 +8,8 @@ FactoryGirl.define do
 
   # This will use the User class (Admin would have been guessed)
   factory :admin, class: User do
-    email "admin@test.ru"
-    password "administrator"
+    email 'admin@test.ru'
+    password 'administrator'
     admin true
   end
 end
