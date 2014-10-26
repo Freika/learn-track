@@ -1,0 +1,10 @@
+<%= simple_form_for activity do |f| %>
+  <%= f.input :name %>
+  <%= f.input :comment %>
+  <%= f.input :link %>
+  <%= f.input :time_spent %>
+  <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
+
+<br>
+  <%= f.button :submit, value: 'Сохранить активность', class: "btn btn-success" %>
+<% end %>
