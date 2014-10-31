@@ -1,31 +1,29 @@
 class ActivitiesController < ApplicationController
   def index
-
   end
 
   def new
     @activity = Activity.new
+    authorize! :new, @activity, message: 'Доступно только зарегистрированным.'
   end
 
   def create
     @activity = Activity.new(activity_params)
+    authorize! :new, @activity, message: 'Доступно только зарегистрированным.'
     if @activity.save
-      redirect_to @activity, notice: "Активность создана"
+      redirect_to @activity, notice: 'Активность создана'
     else
       render :new
     end
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   def destroy
-
   end
 
   def show

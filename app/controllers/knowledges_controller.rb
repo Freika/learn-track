@@ -1,5 +1,6 @@
 class KnowledgesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
+  before_action :authenticate_user!,
+    only: [:new, :create, :destroy, :update, :edit]
 
   def index
     @knowledges = Knowledge.all
@@ -11,14 +12,14 @@ class KnowledgesController < ApplicationController
 
   def edit
     @knowledge = Knowledge.find(params[:id])
-    redirect_to root_path, notice: "Доступ запрещен." unless current_user && current_user.admin
+    authorize! :new, @knowledge, message: 'Доступно только администратору.'
   end
 
   def update
     @knowledge = Knowledge.find(params[:id])
-    redirect_to root_path, notice: "Доступ запрещен." unless current_user && current_user.admin
+    authorize! :new, @knowledge, message: 'Доступно только администратору.'
     if @knowledge.update(knowledge_params)
-      redirect_to @knowledge, notice: "Зание успешно обновлено"
+      redirect_to @knowledge, notice: 'Зание успешно обновлено'
     else
       render :edit
     end
@@ -26,22 +27,24 @@ class KnowledgesController < ApplicationController
 
   def new
     @knowledge = Knowledge.new
+    authorize! :new, @knowledge, message: 'Доступно только зарегистрированным.'
   end
 
   def create
     @knowledge = Knowledge.new(knowledge_params)
+    authorize! :new, @knowledge, message: 'Доступно только зарегистрированным.'
     if @knowledge.save
-      redirect_to @knowledge, notice: "Знание успешно добавлено"
+      redirect_to @knowledge, notice: 'Знание успешно добавлено'
     else
       render :new
     end
   end
 
   def destroy
-    redirect_to root_path, notice: "Доступ запрещен." unless current_user && current_user.admin
     @knowledge = Knowledge.find(params[:id])
+    authorize! :new, @knowledge, message: 'Доступно только администратору.'
     @knowledge.destroy
-    redirect_to knowledges_path, notice: "Знание удалено"
+    redirect_to knowledges_path, notice: 'Знание удалено'
   end
 
   private
