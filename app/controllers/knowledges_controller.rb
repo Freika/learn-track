@@ -12,12 +12,12 @@ class KnowledgesController < ApplicationController
 
   def edit
     @knowledge = Knowledge.find(params[:id])
-    authorize! :new, @knowledge, message: 'Доступно только администратору.'
+    authorize! :edit, @knowledge, message: 'Доступно только администратору.'
   end
 
   def update
     @knowledge = Knowledge.find(params[:id])
-    authorize! :new, @knowledge, message: 'Доступно только администратору.'
+    authorize! :update, @knowledge, message: 'Доступно только администратору.'
     if @knowledge.update(knowledge_params)
       redirect_to @knowledge, notice: 'Зание успешно обновлено'
     else
@@ -32,7 +32,7 @@ class KnowledgesController < ApplicationController
 
   def create
     @knowledge = Knowledge.new(knowledge_params)
-    authorize! :new, @knowledge, message: 'Доступно только зарегистрированным.'
+    authorize! :create, @knowledge, message: 'Доступно только зарегистрированным.'
     if @knowledge.save
       redirect_to @knowledge, notice: 'Знание успешно добавлено'
     else
@@ -42,7 +42,7 @@ class KnowledgesController < ApplicationController
 
   def destroy
     @knowledge = Knowledge.find(params[:id])
-    authorize! :new, @knowledge, message: 'Доступно только администратору.'
+    authorize! :destroy, @knowledge, message: 'Доступно только администратору.'
     @knowledge.destroy
     redirect_to knowledges_path, notice: 'Знание удалено'
   end

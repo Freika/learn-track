@@ -2,7 +2,8 @@
 
 <div class="list">
 <% @knowledges.each do |knowledge| %>
-  <%= link_to knowledge.name, knowledge %>
+  <%= link_to knowledge.name, knowledge %> |
+  <%= link_to 'Редактировать', edit_knowledge_path(knowledge) %>
   <br>
 <% end %>
 </div>

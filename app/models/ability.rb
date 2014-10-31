@@ -8,7 +8,7 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     elsif user.role == 'user'
-      can :manage, Activity
+      can :manage, Activity#, user_id: user.id
       can :create, Knowledge
     else
       can :read, :all

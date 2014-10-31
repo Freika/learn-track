@@ -1,9 +1,9 @@
 <%= simple_form_for activity do |f| %>
-  <%= f.input :name %>
-  <%= f.input :comment %>
-  <%= f.input :link %>
-  <%= f.input :time_spent %>
+  <%= f.input :name, label: 'Что вы изучили?' %>
   <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
+  <%= f.input :comment, label: 'Комментарий к изученному' %>
+  <%= f.input :link, label: 'Ссылка на изученный материал' %>
+  <%= f.input :time_spent, label: 'Сколько затрачено времени?' %>
 
 <br>
   <%= f.button :submit, value: 'Сохранить активность', class: "btn btn-success" %>
