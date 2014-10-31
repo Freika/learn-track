@@ -1,2 +1,26 @@
-<%= @activity.name %>|
-<%= link_to 'Редактировать', edit_activity_path(@activity) %>
+<div class="activity">
+  <div class="cover">
+    <img src="http://lorempixel.com/200/300/" alt="">
+  </div>
+  <h2><%= @activity.name %></h2>
+
+  <% if can? :manage, Activity %>
+    <small>
+    <%= link_to 'Редактировать', edit_activity_path(@activity) %> |
+    <%= link_to 'Удалить', @activity, method: :delete, data: {confirm: "Вы уверены?"} %>
+    </small>
+    <br>
+  <% end %>
+<div class="opinions">
+  <div class="media">
+    <div class="media-body">
+          <small>August 25, 2014 at 9:30 PM</small>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+  </div>
+
+</div>
+
+</div>
+<hr>
+

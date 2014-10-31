@@ -1,3 +1,35 @@
 // Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.activity-card {
+  border: 1px solid gray;
+  box-sizing: border-box;
+  margin: 10px 0;
+  height: 100px;
+  padding: 0 10px 10px 10px;
+
+  h4 {
+    display: inline-block;
+  }
+}
+
+.activity-list {
+}
+
+
+.activity {
+  height: 300px;
+
+  .cover {
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin: 0 10px 10px 0;
+  }
+
+  .comment {
+    margin: 10px
+  }
+
+}

@@ -1,9 +1,15 @@
 <%= link_to 'Добавить активность', new_activity_path, class: "btn btn-primary" %>
 
-<div class="list">
+<div class="activity-list">
 <% @activities.each do |activity| %>
-  <%= link_to activity.name, activity %>
-
-  <br>
+  <div class="col-md-4">
+  <div class="activity-card">
+    <h4><%= link_to activity.name, activity %></h4>
+    <div class="comment">
+      <%= activity.comment %>
+    </div>
+  </div>
+  </div>
 <% end %>
 </div>
+

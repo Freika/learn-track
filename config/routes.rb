@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'knowledges#index'
+  root 'activities#index'
   resources :knowledges
   resources :activities
   # The priority is based upon order of creation: first created -> highest priority.
