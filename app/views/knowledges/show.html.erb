@@ -4,7 +4,7 @@
   </div>
   <h2><%= @knowledge.name %></h2>
 
-  <% if current_admin? %>
+  <% if can? :manage, Knowledge %>
     <small>
     <%= link_to 'Редактировать', edit_knowledge_path(@knowledge) %> |
     <%= link_to 'Удалить', @knowledge, method: :delete, data: {confirm: "Вы уверены?"} %>

@@ -1,8 +1,8 @@
 <%= simple_form_for knowledge do |f| %>
   <%= f.input :name, label: "Название", class: "form-control" %>
+  <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
   <%= f.input :link, label: "Ссылка", class: "form-control" %>
   <%= f.input :description, label: "Описание", class: "form-control" %>
-  <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
   <br>
   <%= f.button :submit, value: 'Сохранить знание', class: "btn btn-success" %>
 <% end %>

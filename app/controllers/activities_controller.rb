@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
+    @activity = current_user.activities.build(activity_params)
     authorize! :create, @activity, message: 'Доступно только зарегистрированным.'
     @activity.user_id = current_user.id
     if @activity.save
@@ -20,11 +20,11 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
-    @activity = Activity.find(params[:id])
+    @activity = user_activity
   end
 
   def update
-    @activity = Activity.find(params[:id])
+    @activity = user_activity
     if @activity.update(activity_params)
       redirect_to @activity, notice: 'Активность обновлена'
     else
@@ -33,16 +33,21 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @activity = Activity.find(params[:id])
+    @activity = user_activity
   end
 
   def show
-    @activity = Activity.find(params[:id])
+    # @activity = Activity.find(params[:id])
+    @activity = user_activity
   end
 
   private
 
   def activity_params
     params.require(:activity).permit(:name, :comment, :link, :time_spent, :kind)
+  end
+
+  def user_activity
+    current_user.activities.find(params[:id])
   end
 end
