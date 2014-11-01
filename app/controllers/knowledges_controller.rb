@@ -1,6 +1,5 @@
 class KnowledgesController < ApplicationController
-  before_action :authenticate_user!,
-    only: [:new, :create, :destroy, :update, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
 
   def index
     @knowledges = Knowledge.all.order(created_at: :desc)

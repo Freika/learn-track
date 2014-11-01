@@ -2,7 +2,7 @@
 
 <div class="activity-list">
 <% @activities.each do |day, activities| %>
-<h3><%= day %></h3>
+<h3><%= nice_russian_date day %></h3>
 <br>
   <% activities.each do |activity| %>
     <div class="activity-card">

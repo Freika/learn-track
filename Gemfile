@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'figaro'
 gem 'cancancan', '~> 1.9'
+gem 'russian'
 
 group :development, :test do
   gem 'spring'
