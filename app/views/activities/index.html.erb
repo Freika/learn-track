@@ -1,15 +1,19 @@
 <%= link_to 'Добавить активность', new_activity_path, class: "btn btn-primary" %>
 
 <div class="activity-list">
-<% @activities.each do |activity| %>
-  <div class="col-md-4">
-  <div class="activity-card">
-    <h4><%= link_to activity.name, activity %></h4>
-    <div class="comment">
-      <%= activity.comment %>
+<% @activities.each do |day, activities| %>
+<h3><%= day %></h3>
+<br>
+  <% activities.each do |activity| %>
+    <div class="activity-card">
+      <h4><%= link_to activity.name, activity %></h4>
+      <div class="comment">
+        <%= activity.comment %>
+      </div>
     </div>
-  </div>
-  </div>
+  <% end %>
 <% end %>
 </div>
 
+
+<br>

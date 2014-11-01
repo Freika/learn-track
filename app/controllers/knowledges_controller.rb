@@ -3,7 +3,7 @@ class KnowledgesController < ApplicationController
     only: [:new, :create, :destroy, :update, :edit]
 
   def index
-    @knowledges = Knowledge.all
+    @knowledges = Knowledge.all.order(created_at: :desc)
   end
 
   def show
