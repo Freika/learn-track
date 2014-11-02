@@ -2,7 +2,7 @@ class KnowledgesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
 
   def index
-    @knowledges = Knowledge.where(approved: true).order(created_at: :desc)
+    @knowledges = Knowledge.approved.order(created_at: :desc)
   end
 
   def show

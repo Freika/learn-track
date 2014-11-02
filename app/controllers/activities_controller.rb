@@ -1,6 +1,6 @@
 # Контроллер активностей
 class ActivitiesController < ApplicationController
-  autocomplete :knowledge, :name, full: true, extra_data: [:link]
+  autocomplete :approved_knowledge, :name, full: true, extra_data: [:link]
 
   def index
     # @activities = Activity.all
@@ -48,7 +48,8 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :comment, :link, :time_spent, :kind)
+    params.require(:activity).permit(:name, :comment, :link, :time_spent, :kind,
+                                     :knowledge_id)
   end
 
   def user_activity

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'activities#index'
   resources :knowledges
   resources :activities do
-    get :autocomplete_knowledge_name, on: :collection
+    get :autocomplete_approved_knowledge_name, on: :collection
   end
 
 end
