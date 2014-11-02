@@ -3,6 +3,9 @@
     <img src="http://lorempixel.com/200/300/" alt="">
   </div>
   <h2><%= @activity.name %></h2>
+  <div class="local-link">
+    Ссылка на сайте: <%= link_to @activity.knowledge.name, @activity.knowledge %>
+  </div>
 
   <% if can? :manage, Activity %>
     <small>

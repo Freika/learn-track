@@ -7,6 +7,7 @@ class KnowledgesController < ApplicationController
 
   def show
     @knowledge = Knowledge.find(params[:id])
+    @learned = @knowledge.activities.count
   end
 
   def edit

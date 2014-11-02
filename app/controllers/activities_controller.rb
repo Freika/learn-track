@@ -4,8 +4,10 @@ class ActivitiesController < ApplicationController
 
   def index
     # @activities = Activity.all
-    @activities = Activity.all.order(created_at: :desc)
+    if current_user
+      @activities = Activity.all.order(created_at: :desc)
                                 .group_by { |d| d.created_at.beginning_of_day }
+    end
   end
 
   def new

@@ -2,4 +2,6 @@ class Activity < ActiveRecord::Base
   validates :kind, inclusion: { in: Knowledge::KINDS }
   validates :name, :comment, :kind, presence: true
   has_paper_trail
+  belongs_to :user
+  belongs_to :knowledge
 end

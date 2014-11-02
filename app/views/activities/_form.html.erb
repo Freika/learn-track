@@ -1,8 +1,7 @@
 <%= simple_form_for activity do |f| %>
   <%= f.input :name, label: 'Что вы изучили?', class: 'form-control',
      url: autocomplete_approved_knowledge_name_activities_path, as: :autocomplete,
-     :scopes => [:approved], update_elements: { link: '#activity_link',
-                                                id: '#activity_knowledge_id'} %>
+     update_elements: { link: '#activity_link', id: '#activity_knowledge_id'} %>
   <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
   <%= f.input :comment, label: 'Комментарий к изученному' %>
   <%= f.input :link, label: 'Ссылка на изученный материал' %>
