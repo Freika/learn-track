@@ -1,5 +1,8 @@
 <%= simple_form_for activity do |f| %>
-  <%= f.input :name, label: 'Что вы изучили?' %>
+  <%= f.input :name, label: 'Что вы изучили?', class: 'form-control',
+     url: autocomplete_knowledge_name_activities_path, as: :autocomplete,
+     update_elements: { link: '#activity_link' }
+      %>
   <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
   <%= f.input :comment, label: 'Комментарий к изученному' %>
   <%= f.input :link, label: 'Ссылка на изученный материал' %>

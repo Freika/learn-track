@@ -1,5 +1,7 @@
 # Контроллер активностей
 class ActivitiesController < ApplicationController
+  autocomplete :knowledge, :name, full: true, extra_data: [:link]
+
   def index
     # @activities = Activity.all
     @activities = Activity.all.order(created_at: :desc)
