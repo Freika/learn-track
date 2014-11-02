@@ -7,8 +7,10 @@ class Ability
 
     if user.role == 'admin'
       can :manage, :all
+      can :access, :rails_admin   # grant access to rails_admin
+      can :dashboard              # grant access to the dashboard
     elsif user.role == 'user'
-      can :manage, Activity#, user_id: user.id
+      can :manage, Activity # , user_id: user.id
       can :create, Knowledge
     else
       can :read, :all

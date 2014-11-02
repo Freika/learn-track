@@ -14,6 +14,14 @@ RailsAdmin.config do |config|
   ## == PaperTrail ==
   config.audit_with :paper_trail, 'User', 'PaperTrail::Version'
 
+  config.authorize_with :cancan
+  config.current_user_method &:current_user
+
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
+
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   config.actions do

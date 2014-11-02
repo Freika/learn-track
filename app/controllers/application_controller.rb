@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   check_authorization unless: :do_not_check_authorization?
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_url, alert: exception.message
   end
