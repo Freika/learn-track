@@ -2,16 +2,20 @@
 
 <div class="activity-list">
 <% @activities.each do |day, activities| %>
-<h3><%= nice_russian_date day %></h3>
-<br>
+<div class="activity-day clearfix">
+  <h3><%= nice_russian_date day %></h3>
+  <br>
   <% activities.each do |activity| %>
+    <div class="col-md-4">
     <div class="activity-card">
-      <h4><%= link_to activity.name, activity %></h4>
-      <div class="comment">
-        <%= activity.comment %>
+        <h4><%= link_to activity.name, activity %></h4>
+        <div class="comment">
+          <%= activity.comment %>
+        </div>
       </div>
     </div>
   <% end %>
+</div>
 <% end %>
 </div>
 

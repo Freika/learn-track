@@ -8,15 +8,11 @@ module ApplicationHelper
     }[flash_type.to_sym] || flash_type.to_s
   end
 
-  def current_admin?
-    current_user && current_user.admin
-  end
-
   def nice_russian_date(post)
     if post == Date.today
-      "Сегодня, #{Russian::strftime(post, '%e %B %Y')}"
+      "Сегодня, #{Russian::strftime(post, '%e %B')}"
     elsif post == Date.yesterday
-      "Вчера, #{Russian::strftime(post, '%e %B %Y')}"
+      "Вчера, #{Russian::strftime(post, '%e %B')}"
     else
       Russian::strftime(post, '%e %B %Y')
     end
