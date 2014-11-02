@@ -2,8 +2,16 @@
 
 <div class="list">
 <% @knowledges.each do |knowledge| %>
-  <%= link_to knowledge.name, knowledge %> |
-  <%= link_to 'Редактировать', edit_knowledge_path(knowledge) %>
-  <br>
+<div class="col-xl-3 col-md-3 col-sm-6 col-xs-12">
+  <div class="knowledge-card">
+  <div class="cover">
+    <img src="http://lorempixel.com/300/110/" class="img-responsive" >
+  </div>
+  <div class="content">
+    <%= link_to knowledge.name, knowledge %> |
+    <%= link_to 'Редактировать', edit_knowledge_path(knowledge) %>
+  </div>
+  </div>
+</div>
 <% end %>
 </div>

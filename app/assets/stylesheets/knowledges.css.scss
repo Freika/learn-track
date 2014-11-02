@@ -18,3 +18,18 @@
   }
 
 }
+
+.knowledge-card {
+  box-sizing: border-box;
+  border: 1px solid gray;
+  height: 200px;
+
+  .cover {
+    height: 100px;
+  }
+
+  .content {
+    background-color: #fff;
+    padding: 10px;
+  }
+}
