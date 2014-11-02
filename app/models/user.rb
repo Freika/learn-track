@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable#, :validatable
   has_many :activities
   has_paper_trail
+  before_create :default_role
+
+  private
+
+  def default_role
+    self.role = 'user'
+  end
 end

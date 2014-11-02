@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20141102135214) do
     t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "approved"
+    t.boolean  "approved",    default: false
   end
 
   create_table "users", force: true do |t|
