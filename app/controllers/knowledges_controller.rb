@@ -49,6 +49,7 @@ class KnowledgesController < ApplicationController
   private
 
   def knowledge_params
-    params.require(:knowledge).permit(:name, :description, :link, :kind)
+    params.require(:knowledge).permit(:name, :description, :link, :kind,
+                                      :approved)
   end
 end

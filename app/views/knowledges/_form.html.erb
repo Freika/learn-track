@@ -3,6 +3,9 @@
   <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
   <%= f.input :link, label: "Ссылка", class: "form-control" %>
   <%= f.input :description, label: "Описание", class: "form-control" %>
+  <% if current_user && current_user.role == "admin" %>
+    <%= f.input :approved, label: 'Одобрено?', class: 'form-control' %>
+  <% end %>
   <br>
   <%= f.button :submit, value: 'Сохранить знание', class: "btn btn-success" %>
 <% end %>
