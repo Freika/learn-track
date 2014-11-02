@@ -23,6 +23,10 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
+  config.model 'UnapprovedKnowledge' do
+    label 'Неапрувнутое знание'
+    label_plural 'Неапрувнутые знания'
+  end
 
   config.actions do
     dashboard                     # mandatory
@@ -36,7 +40,7 @@ RailsAdmin.config do |config|
     show_in_app
 
     ## With an audit adapter, you can add:
-    # history_index
-    # history_show
+    history_index
+    history_show
   end
 end
