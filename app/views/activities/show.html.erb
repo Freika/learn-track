@@ -4,7 +4,9 @@
   </div>
   <h2><%= @activity.name %></h2>
   <div class="local-link">
+  <% if @activity.knowledge %>
     Ссылка на сайте: <%= link_to @activity.knowledge.name, @activity.knowledge %>
+  <% end %>
   </div>
 
   <% if can? :manage, Activity %>

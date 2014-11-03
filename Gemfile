@@ -40,4 +40,5 @@ group :development, :test do
   gem "codeclimate-test-reporter", require: nil
   gem 'simplecov', :require => false
   gem 'did_you_mean'
+  gem 'quiet_assets'
 end

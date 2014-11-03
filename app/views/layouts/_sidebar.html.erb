@@ -1,0 +1,14 @@
+<div class="sidebar">
+  <% if current_user %>
+  <h4>Недавно изученное:</h4>
+  <% #отрефакторить в хелпер %>
+  <ol>
+    <% @last_activities = current_user.activities.last(5) %>
+    <% @last_activities.each do |activity| %>
+    <li><%= link_to activity.name, activity %></li>
+    <% end %>
+  </ol>
+
+  Всего вами изучено <%= current_user.activities.count %> материалов.
+  <% end %>
+</div>

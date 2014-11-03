@@ -12,8 +12,13 @@
 <div class="container">
 <%= render "layouts/header" %>
 <%= render partial: "shared/flash_messages", flash: flash %>
-
+<div class="col-xl-9 col-md-9 col-sm-8 col-xs-12">
   <%= yield %>
+</div>
+<div class="col-xl-3 col-md-3 col-sm-4 col-xs-12">
+  <%= render 'layouts/sidebar' %>
+</div>
+
 </div>
 
 </body>

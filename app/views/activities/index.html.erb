@@ -5,18 +5,16 @@
 <% @activities.each do |day, activities| %>
 <div class="activity-day clearfix">
   <h3><%= nice_russian_date day %></h3>
-  <br>
   <% activities.each do |activity| %>
-    <div class="col-md-4">
-    <div class="activity-card">
-        <h4><%= link_to activity.name, activity %></h4>
-        <div class="comment">
-          <%= activity.comment %>
-        </div>
+    <div class="activity-point">
+      <h4><%= link_to activity.name, activity %></h4>
+      <div class="comment">
+        <%= truncate(activity.comment, length: 120, separator: ' ', omission: '...') %>
       </div>
     </div>
   <% end %>
 </div>
+<hr>
 <% end %>
 </div>
 

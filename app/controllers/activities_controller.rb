@@ -18,6 +18,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = current_user.activities.build(activity_params)
     authorize! :create, @activity, message: 'Доступно только зарегистрированным.'
+
     if @activity.save
       redirect_to @activity, notice: 'Активность создана'
     else
