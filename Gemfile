@@ -21,6 +21,7 @@ gem 'cancancan', '~> 1.9'
 gem 'russian'
 gem 'rails4-autocomplete'
 gem 'rails_admin'
+gem 'material_design_icons_rails'
 gem 'paper_trail', '~> 3.0.6'
 
 group :development, :test do

@@ -13,8 +13,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require jquery-ui
 //= require jquery-ui/autocomplete
 //= require autocomplete-rails
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+    // $('.dropdown-menu').toggle();
+});
