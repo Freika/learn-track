@@ -14,12 +14,8 @@
   font-family: Georgia!important;
 }
 
-
 nav.mui {
   margin-bottom: 20px;
-}
-
-.mui {
   background-color: #243241!important;
   height: 78px;
   font-size: 13px;
@@ -56,7 +52,7 @@ nav.mui {
   }
 }
 
-.mui-blue {
+.btn.mui-blue {
   background-color: #0066cb!important;
   border: none!important;
   border-color: transparent!important;
@@ -65,7 +61,7 @@ nav.mui {
   font-size: 13px!important;
 }
 
-.mui-dropdown {
+.dropdown.mui-dropdown {
   a {
     color: #888!important;
     font-size: 12px;

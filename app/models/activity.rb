@@ -10,8 +10,8 @@ class Activity < ActiveRecord::Base
 
   def create_knowledge
     unless Knowledge.exists?(name: self.name)
-    logger.info self.name
-      t = Knowledge.create!(name: self.name, kind: self.kind)
+    logger.info "#{self.name} knowledge was created"
+      Knowledge.create!(name: self.name, kind: self.kind)
     end
   end
 end

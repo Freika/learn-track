@@ -21,8 +21,9 @@ gem 'cancancan', '~> 1.9'
 gem 'russian'
 gem 'rails4-autocomplete'
 gem 'rails_admin'
-gem 'material_design_icons_rails'
 gem 'paper_trail', '~> 3.0.6'
+gem 'will_paginate', '~> 3.0'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'spring'
