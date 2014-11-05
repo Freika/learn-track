@@ -9,12 +9,16 @@
   <% end %>
   </div>
 
-  <% if can? :manage, Activity %>
+  <% if can? :update, Activity %>
     <small>
-    <%= link_to 'Редактировать', edit_activity_path(@activity) %> |
-    <%= link_to 'Удалить', @activity, method: :delete, data: {confirm: "Вы уверены?"} %>
+    <%= link_to 'Редактировать', edit_activity_path(@activity) %>
     </small>
     <br>
+  <% end %>
+  <% if can? :update, Activity %>
+    <small>
+    <%= link_to 'Удалить', @activity, method: :delete, data: {confirm: "Вы уверены?"} %>
+    </small>
   <% end %>
 <div class="opinions">
   <div class="media">

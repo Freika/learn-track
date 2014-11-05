@@ -28,10 +28,12 @@ class ActivitiesController < ApplicationController
 
   def edit
     @activity = user_activity
+    authorize! :edit, @activity, message: 'Доступно только автору активности.'
   end
 
   def update
     @activity = user_activity
+    authorize! :update, @activity, message: 'Доступно только автору активности.'
     if @activity.update(activity_params)
       redirect_to @activity, notice: 'Активность обновлена'
     else
@@ -41,10 +43,13 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity = user_activity
+    authorize! :destroy, @activity, message: 'Доступно только автору активности.'
+    @activity.destroy
+    redirect_to root_path, notice: 'Активность удалена'
+
   end
 
   def show
-    # @activity = Activity.find(params[:id])
     @activity = user_activity
   end
 

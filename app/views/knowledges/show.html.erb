@@ -3,18 +3,21 @@
     <img src="http://lorempixel.com/200/300/" alt="">
   </div>
   <h2><%= @knowledge.name %></h2>
+  <% if @learned > 0 %>
+  Уже <strong><%= @learned %></strong> человек изучили это.
+  <% else %>
+  Еще никто не изучил этот материал.
+  <% end %>
 
   <% if can? :manage, Knowledge %>
     <small>
-    <%= link_to 'Редактировать', edit_knowledge_path(@knowledge) %> |
-    <%= link_to 'Удалить', @knowledge, method: :delete, data: {confirm: "Вы уверены?"} %>
+    <%= link_to 'Редактировать', rails_admin.edit_path('knowledge', @knowledge) %>
     </small>
     <br>
   <% end %>
 
   <strong>Сайт:</strong> <%= @knowledge.link %>
   <br>
-  Уже <strong><%= @learned %></strong> человек изучили это.
 
   <div class="description">
     <%= @knowledge.description %>
