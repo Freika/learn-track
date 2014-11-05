@@ -12,8 +12,10 @@
     </div>
   </div>
   <div class="content">
-    <h4><%= link_to truncate(knowledge.name, length: 45, separator: ' '), knowledge %></h4>
-    <p><%= truncate(knowledge.description, length: 130, separator: ' ') %></p>
+    <div class="title">
+      <h4><%= link_to truncate(knowledge.name, length: 45, separator: ' '), knowledge %></h4>
+    </div>
+    <p><%= truncate(knowledge.description, length: 100, separator: ' ') %></p>
   </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
     # @activities = Activity.all
     if current_user
       @activities = Activity.all.order(created_at: :desc)
-                                .group_by { |d| d.created_at.beginning_of_day }
+        .group_by { |d| d.created_at.beginning_of_day }
     end
   end
 
