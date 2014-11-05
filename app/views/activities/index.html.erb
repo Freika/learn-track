@@ -1,22 +1,37 @@
 <%= link_to 'Добавить активность', new_activity_path, class: "btn btn-primary" %>
 <% if current_user %>
 
-<div class="activity-list">
-<% @activities.each do |day, activities| %>
-<div class="activity-day clearfix">
-  <h3><%= nice_russian_date day %></h3>
-  <% activities.each do |activity| %>
-    <div class="activity-point">
-      <h4><%= link_to activity.name, activity %></h4>
-      <div class="comment">
-        <%= truncate(activity.comment, length: 120, separator: ' ', omission: '...') %>
-      </div>
+<!-- <div class="activity-list"> -->
+<%# @activities.each do |day, activities| %>
+<!-- <div class="activity-day clearfix"> -->
+  <!-- <h3><%#= nice_russian_date day %></h3> -->
+  <%# activities.each do |activity| %>
+    <!-- <div class="activity-point"> -->
+      <!-- <h4><%#= link_to activity.name, activity %></h4> -->
+      <!-- <div class="comment"> -->
+        <%#= truncate(activity.comment, length: 120, separator: ' ', omission: '...') %>
+      <!-- </div> -->
+    <!-- </div> -->
+  <%# end %>
+<!-- </div> -->
+<%# end %>
+<!-- </div> -->
+
+<% @activities_keys.each do |date| %>
+  <h3><%= nice_russian_date date %></h3>
+  <% Activity.where(created_at: date.beginning_of_day..date.end_of_day).each do |activity| %>
+    <div class="activity-day clearfix">
+        <div class="activity-point">
+          <h4><%= link_to activity.name, activity %></h4>
+          <div class="comment">
+            <%= truncate(activity.comment, length: 120, separator: ' ', omission: '...') %>
+          </div>
+        </div>
     </div>
   <% end %>
-</div>
-<hr>
+  <hr>
 <% end %>
-</div>
 
+<%= will_paginate @activities_keys %>
 <br>
 <% end %>

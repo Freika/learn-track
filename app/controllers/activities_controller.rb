@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
     if current_user
       @activities = Activity.all.order(created_at: :desc)
         .group_by { |d| d.created_at.beginning_of_day }
+      @activities_keys = @activities.keys.paginate(page: params[:page], per_page: 1)
     end
   end
 
