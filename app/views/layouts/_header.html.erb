@@ -19,17 +19,19 @@
         </li>
         <li><%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-primary mui-blue' %></li>
       <% else %>
-        <li class="dropdown mui-dropdown">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default mui-blue dropdown-toggle" data-toggle="dropdown">
-              <%= current_user.email %> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li class="divider"></li>
-              <li><%= link_to "Настройки", edit_user_registration_path %></li>
-              <li><%= link_to "Выход", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </div>
+        <li class="dropdown">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default mui-blue"><%= link_to current_user.email, current_user %></button>
+          <button type="button" class="btn btn-default mui-blue dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Показать меню</span>
+          </button>
+          <ul class="dropdown-menu mui-dropdown" role="menu">
+            <li class="divider"></li>
+            <li><%= link_to "Настройки", edit_user_registration_path %></li>
+            <li><%= link_to "Выход", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
         </li>
       <% end %>
     </ul>
