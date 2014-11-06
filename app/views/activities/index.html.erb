@@ -23,6 +23,8 @@
     <div class="activity-day clearfix">
         <div class="activity-point">
           <h4><%= link_to activity.name, activity %></h4>
+          <h5><%= link_to activity.user.try(:email), user_path(activity.user_id.to_i) %>
+          </h5>
           <div class="comment">
             <%= truncate(activity.comment, length: 120, separator: ' ', omission: '...') %>
           </div>

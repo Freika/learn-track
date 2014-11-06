@@ -1,24 +1,22 @@
 # Контроллер активностей
 class ActivitiesController < ApplicationController
   autocomplete :approved_knowledge, :name, full: true, extra_data: [:link]
+  load_and_authorize_resource except: [:index, :show]
 
   def index
-    # @activities = Activity.all
     if current_user
       @activities = Activity.all.order(created_at: :desc)
         .group_by { |d| d.created_at.beginning_of_day }
-      @activities_keys = @activities.keys.paginate(page: params[:page], per_page: 1)
+      @activities_keys = @activities.keys.paginate(page: params[:page], per_page: 7)
     end
   end
 
   def new
     @activity = Activity.new
-    authorize! :new, @activity, message: 'Доступно только зарегистрированным.'
   end
 
   def create
     @activity = current_user.activities.build(activity_params)
-    authorize! :create, @activity, message: 'Доступно только зарегистрированным.'
 
     if @activity.save
       redirect_to @activity, notice: 'Активность создана'
@@ -29,12 +27,10 @@ class ActivitiesController < ApplicationController
 
   def edit
     @activity = user_activity
-    authorize! :edit, @activity, message: 'Доступно только автору активности.'
   end
 
   def update
     @activity = user_activity
-    authorize! :update, @activity, message: 'Доступно только автору активности.'
     if @activity.update(activity_params)
       redirect_to @activity, notice: 'Активность обновлена'
     else
@@ -44,7 +40,6 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity = user_activity
-    authorize! :destroy, @activity, message: 'Доступно только автору активности.'
     @activity.destroy
     redirect_to root_path, notice: 'Активность удалена'
 
