@@ -26,39 +26,26 @@
 <hr>
 
 <div class="opinions">
-  <div class="media">
-    <a class="pull-left" href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading">Start Bootstrap
-          <small>August 25, 2014 at 9:30 PM</small>
-      </h4>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </div>
+<% @knowledge.activities.each do |activity| %>
 
-  <div class="media">
-    <a class="pull-left" href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading">Start Bootstrap
-          <small>August 25, 2014 at 9:30 PM</small>
-      </h4>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </div>
+<div class="col-md-1">
+  <%= link_to activity.user do %>
+    <%= gravatar_for activity.user, size: 50 %>
+  <% end %>
+</div>
 
-  <div class="media">
-    <a class="pull-left" href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading">Start Bootstrap
-          <small>August 25, 2014 at 9:30 PM</small>
+<div class="col-md-11">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><span class="user"><%= link_to activity.user.try(:login), user_path(activity.user_id.to_i) %></span>:
+        <%= nice_russian_date(activity.created_at) %>
       </h4>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </div>
+    <div class="panel-body comment">
+      <%= activity.comment %>
     </div>
   </div>
+</div>
+
+<% end %>
 </div>
