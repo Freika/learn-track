@@ -3,6 +3,7 @@ class KnowledgesController < ApplicationController
 
   def index
     @knowledges = Knowledge.approved.order(created_at: :desc)
+      .paginate(page: params[:page], per_page: 12)
   end
 
   def show
