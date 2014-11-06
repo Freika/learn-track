@@ -14,9 +14,21 @@
   }
 }
 
-.activity-list {
+.activity-point {
+  .panel {
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow:    0px 1px 3px 0px rgba(50, 50, 50, 0.1);
+    box-shadow:         0px 1px 3px 0px rgba(50, 50, 50, 0.1);
+
+    .panel-heading {
+      background-color: #fff;
+    }
+  }
 }
 
+h3 {
+  text-align: center;
+}
 
 .activity {
   height: 300px;

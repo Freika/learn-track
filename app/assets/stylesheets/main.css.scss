@@ -1,5 +1,20 @@
 // main css
 
+@import 'colors';
+
+
+body {
+  color: #727272!important;
+  font-family: Arial;
+}
+
+.user {
+
+  a {
+    color: $user;
+  }
+}
+
 .logo {
   font-family: 'Lobster', cursive;
   font-size: 32px;
@@ -16,7 +31,10 @@
 }
 
 .h1, h2, h3, h4, h5, h6 {
-  font-family: Georgia!important;
+  font-family: 'Roboto'!important;
+  font-weight: 400;
+  font-style: normal;
+  //Добавить Робото Лайт
 }
 
 nav.mui {

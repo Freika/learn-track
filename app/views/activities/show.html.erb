@@ -2,24 +2,28 @@
   <div class="cover">
     <img src="http://lorempixel.com/200/300/" alt="">
   </div>
-  <h2><%= @activity.name %></h2>
+  <h2><%= @activity.name %>
+  <% if can? :update, Activity %>
+    <small>
+    <%= link_to edit_activity_path(@activity) do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+    </small>
+  <% end %>
+  <% if can? :update, Activity %>
+    <small>
+    <%= link_to @activity, method: :delete, data: {confirm: "Вы уверены?"} do %>
+      <i class="fa fa-remove"></i>
+    <% end %>
+    </small>
+  <% end %>
+  </h2>
   <div class="local-link">
   <% if @activity.knowledge %>
     Ссылка на сайте: <%= link_to @activity.knowledge.name, @activity.knowledge %>
   <% end %>
   </div>
 
-  <% if can? :update, Activity %>
-    <small>
-    <%= link_to 'Редактировать', edit_activity_path(@activity) %>
-    </small>
-    <br>
-  <% end %>
-  <% if can? :update, Activity %>
-    <small>
-    <%= link_to 'Удалить', @activity, method: :delete, data: {confirm: "Вы уверены?"} %>
-    </small>
-  <% end %>
 <div class="opinions">
   <div class="media">
     <div class="media-body">

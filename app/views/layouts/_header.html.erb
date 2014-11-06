@@ -10,7 +10,7 @@
       <li><%= link_to "Знания", knowledges_path %></li>
       <li><%= link_to 'Активность', activities_path %></li>
     </ul>
-    <ul class="navigation pull-right">
+    <ul class="navigation navbar-right">
       <% unless current_user %>
         <li><%= link_to new_user_session_path, class: 'btn btn-primary mui-blue' do %>
         <span class="glyphicon glyphicon-user"></span>

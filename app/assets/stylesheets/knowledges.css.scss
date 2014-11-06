@@ -1,6 +1,7 @@
 // Place all the styles related to the knowledges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
 
 
 .knowledge {
@@ -61,38 +62,38 @@
   }
 }
 .knowledge-card.book {
-  background-color: #fbd021;
+  background-color: $yellow;
   color: #bc9701;
 
   .cover {
-    color: #fbd021;
+    color: $yellow;
   }
 }
 
 .knowledge-card.screencast {
-  background-color: #2c82c9;
+  background-color: $blue;
   color: #72b9f3;
 
   .cover {
-    color: #2c82c9;
+    color: $blue;
   }
 }
 
 .knowledge-card.article {
-  background-color: #e84c3d;
+  background-color: $red;
   color: #f29c94;
 
   .cover {
-    color: #e84c3d;
+    color: $red;
   }
 }
 
 .knowledge-card.tutorial {
-  background-color: #21b139;
+  background-color: $green;
   color: #bdf5c9;
 
   .cover {
-    color: #21b139;
+    color: $green;
   }
 }
 
