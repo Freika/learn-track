@@ -1,3 +1,11 @@
 <div class="sidebar">
-  test lol
+  <h2><%= @user.login %></h2>
+  <div class="avatar">
+    <%= gravatar_for @user, size: 150 %>
+  </div>
+  <div class="info">
+    Дата регистрации: <%= nice_russian_date(@user.created_at) %>
+    <br>
+    Последний вход: <%= nice_russian_date(@user.last_sign_in_at) %>
+  </div>
 </div>
