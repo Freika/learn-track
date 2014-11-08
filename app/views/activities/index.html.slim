@@ -1,0 +1,25 @@
+- if current_user
+  = link_to 'Добавить активность', new_activity_path, class: "btn btn-primary center-block"
+
+  - @activities_keys.each do |date|
+    h3= nice_russian_date date
+    - Activity.where(created_at: date.beginning_of_day..date.end_of_day).each do |activity|
+      .activity-day.clearfix
+        .activity-point
+          .col-md-1
+            = link_to activity.user do
+              = gravatar_for activity.user, size: 50
+
+          .col-md-11
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  span.user= link_to activity.user.try(:login), user_path(activity.user_id.to_i)
+                  | :
+                  = link_to activity.name, activity
+              .panel-body.comment
+                = truncate(activity.comment, length: 120, separator: ' ', omission: '...')
+
+    <hr>
+
+  = will_paginate @activities_keys
