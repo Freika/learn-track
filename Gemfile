@@ -24,6 +24,7 @@ gem 'rails_admin'
 gem 'paper_trail', '~> 3.0.6'
 gem 'will_paginate', '~> 3.0'
 gem 'font-awesome-sass'
+gem "slim-rails"
 
 group :development, :test do
   gem 'spring'

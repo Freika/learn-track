@@ -8,6 +8,12 @@ body {
   font-family: Arial;
 }
 
+.a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .user {
 
   a {
