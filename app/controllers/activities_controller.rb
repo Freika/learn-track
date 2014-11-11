@@ -53,7 +53,7 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:name, :comment, :link, :time_spent, :kind,
-                                     :knowledge_id)
+                                     :knowledge_id, :tag_list)
   end
 
   def user_activity

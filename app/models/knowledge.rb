@@ -4,7 +4,7 @@ class Knowledge < ActiveRecord::Base
   validates :kind, inclusion: { in: KINDS }
   has_paper_trail
   has_many :activities
-  # validates :name, uniqueness: true
+  acts_as_taggable
 
   scope :approved, -> { where(approved: true) }
 end

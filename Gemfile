@@ -24,23 +24,25 @@ gem 'rails_admin'
 gem 'paper_trail', '~> 3.0.6'
 gem 'will_paginate', '~> 3.0'
 gem 'font-awesome-sass'
-gem "slim-rails"
+gem 'slim-rails'
+gem 'acts-as-taggable-on', '~> 3.4'
+
 
 group :development, :test do
   gem 'spring'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails', '~> 3.0.0'
-  gem "rubycritic", :require => false
+  gem 'rubycritic', :require => false
   gem 'brakeman', :require => false
-  gem "rails_best_practices"
-  gem "capybara-webkit"
+  gem 'rails_best_practices'
+  gem 'capybara-webkit'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'guard-rspec', require: false
   gem 'faker'
   gem 'launchy'
   gem 'guard-livereload', require: false
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
   gem 'simplecov', :require => false
   gem 'did_you_mean'
   gem 'quiet_assets'

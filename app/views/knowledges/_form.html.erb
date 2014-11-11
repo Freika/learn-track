@@ -3,6 +3,7 @@
   <%= f.input :kind, collection: Knowledge::KINDS, selected: "Книга", label: "Вид" %>
   <%= f.input :link, label: "Ссылка", class: "form-control" %>
   <%= f.input :description, label: "Описание", class: "form-control" %>
+  <%= f.input :tag_list, label: 'Список подходящих тем' %>
   <% if current_user && current_user.role == "admin" %>
     <%= f.input :approved, label: 'Одобрено?', class: 'form-control' %>
   <% end %>
