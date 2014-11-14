@@ -47,3 +47,8 @@ group :development, :test do
   gem 'did_you_mean'
   gem 'quiet_assets'
 end
+
+group :production do
+  gem 'capistrano', github: 'capistrano/capistrano', ref: '96a16'
+  gem 'unicorn'
+end
