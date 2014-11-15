@@ -7,6 +7,8 @@ class Activity < ActiveRecord::Base
   before_create :create_knowledge
   acts_as_taggable
 
+  scope :created_on, ->(date) { where(created_at: date.beginning_of_day..date.end_of_day) }
+
   private
 
   def create_knowledge

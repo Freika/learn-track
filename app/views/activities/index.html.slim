@@ -3,7 +3,7 @@
 
   - @activities_keys.each do |date|
     h3= nice_russian_date date
-    - Activity.where(created_at: date.beginning_of_day..date.end_of_day).each do |activity|
+    - Activity.created_on(date).each do |activity|
       .activity-day.clearfix
         .activity-point
           .col-md-1
