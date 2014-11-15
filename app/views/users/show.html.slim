@@ -2,8 +2,9 @@ h3 Последние изученные материалы
 .activity-day.cleaftix
   - @user_activities.each do |activity|
     .activity-point
-      h4= link_to knowledge_path(activity.knowledge_id) do
+      h4= link_to knowledge_path(activity.knowledge) do
         = activity.name
+        '
         small= nice_russian_date(activity.created_at)
       .comment
         = truncate(activity.comment, length: 255, separator: ' ', omission: '...')

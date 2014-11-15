@@ -15,7 +15,7 @@
               .panel-heading
                 h4.panel-title
                   span.user= link_to activity.user.try(:login), user_path(activity.user_id)
-                  | :
+                  ' :
                   = link_to activity.name, activity
               .panel-body.comment
                 = truncate(activity.comment, length: 120, separator: ' ', omission: '...')
