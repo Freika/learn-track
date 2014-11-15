@@ -30,7 +30,7 @@
     <br>
   <% end %>
 
-<% if @knowledge.link.present? %>
+<% if @knowledge.link? %>
   <strong>Сайт:</strong> <%= @knowledge.link %>
 <% end %>
   <div class="description">
