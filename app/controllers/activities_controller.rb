@@ -20,7 +20,8 @@ class ActivitiesController < ApplicationController
 
     if @activity.save
       unless @activity.knowledge_id
-        @activity.knowledge_id = Knowledge.find_by(name: activity_params[:name]).id
+        @activity.update_attribute(:knowledge, Knowledge.find_by(name: activity_params[:name]))
+        # @activity.knowledge_id = Knowledge.find_by(name: activity_params[:name]).id
         @activity.save
       end
       redirect_to @activity, notice: 'Активность создана'
