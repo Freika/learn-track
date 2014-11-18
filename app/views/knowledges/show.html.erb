@@ -1,8 +1,22 @@
 <div class="knowledge">
-  <div class="cover">
-    <img src="http://lorempixel.com/200/300/" alt="">
-  </div>
-  <h2><%= @knowledge.name %></h2>
+  <!-- <div class="cover"> -->
+  <!-- </div> -->
+  <h2><%= @knowledge.name %>
+  <% if can? :update, Knowledge %>
+    <small>
+    <%= link_to edit_activity_path(@knowledge) do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+    </small>
+  <% end %>
+  <% if can? :update, Knowledge %>
+    <small>
+    <%= link_to @knowledge, method: :delete, data: {confirm: "Вы уверены?"} do %>
+      <i class="fa fa-remove"></i>
+    <% end %>
+    </small>
+  <% end %>
+  </h2>
   <% if @learned > 0 %>
   Уже <strong><%= @learned %></strong> человек изучили это.
   <% else %>
@@ -16,9 +30,9 @@
     <br>
   <% end %>
 
+<% if @knowledge.link? %>
   <strong>Сайт:</strong> <%= @knowledge.link %>
-  <br>
-
+<% end %>
   <div class="description">
     <%= @knowledge.description %>
   </div>

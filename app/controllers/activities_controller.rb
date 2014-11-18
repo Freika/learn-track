@@ -19,6 +19,11 @@ class ActivitiesController < ApplicationController
     @activity = current_user.activities.build(activity_params)
 
     if @activity.save
+      unless @activity.knowledge_id
+        @activity.update_attribute(:knowledge, Knowledge.find_by(name: activity_params[:name]))
+        # @activity.knowledge_id = Knowledge.find_by(name: activity_params[:name]).id
+        @activity.save
+      end
       redirect_to @activity, notice: 'Активность создана'
     else
       render :new
@@ -53,7 +58,7 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:name, :comment, :link, :time_spent, :kind,
-                                     :knowledge_id)
+                                     :knowledge_id, :tag_list)
   end
 
   def user_activity

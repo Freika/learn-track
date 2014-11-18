@@ -1,0 +1,35 @@
+= form.send field.view_helper, field.method_name, field.html_attributes
+
+- tag_suggestions(field, :length => 5, :order => { :count => :desc }).each do |tag|
+  = link_to tag, '#', :class => 'tag_suggestion', :data => { :input_id => form.dom_id(field) }
+
+javascript:
+  | jQuery(function(){
+    | var input_id = '#{form.dom_id(field)}'
+    | $('.tag_suggestion[data-input-id=' + input_id + ']').click(function(event){
+      | var tag_list, values, tag;
+      | tag_list = $(this).siblings('input#' + input_id);
+      /!/ Get the current values by splitting on a comma and stripping whitespace.
+      | values = jQuery.map(tag_list.val().split(','), function(val){ return jQuery.trim(val) });
+      /!/ Remove empty strings from values
+      | values = jQuery.grep(values, function(n) { return n.length > 0 });
+      | tag = $(this).text();
+      | if (jQuery.inArray(tag, values) == -1) {
+        | values.push(tag);
+      | } else {
+        /!/ Remove current tag from current_values
+        | values = jQuery.grep(values, function(n) { return n != tag });
+      | }
+      | tag_list.val(values.join(', '));
+      | return false;
+    | });
+  | });
+style
+  sass:
+    .tag_suggestion
+      | color: #777
+      | border-bottom: 1px dotted #b94a48
+      | &:hover
+        | color: #aaa
+        | border-bottom: 1px dotted #953b39
+        | text-decoration: none
