@@ -1,5 +1,5 @@
 class Knowledge < ActiveRecord::Base
-  KINDS = %w(Книга Скринкаст Видео).freeze
+  KINDS = %w(Книга Скринкаст Видео Курс).freeze
   validates :name, :kind, presence: true
   validates :kind, inclusion: { in: KINDS }
   has_paper_trail
